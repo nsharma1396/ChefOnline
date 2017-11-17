@@ -11,10 +11,13 @@ gem 'puma', '~> 3.7'
 gem 'sass-rails', '~> 5.0'
 gem 'bootstrap-sass','~>3.3.7'
 gem 'uglifier', '>= 1.3.0'
+gem 'jquery-rails'
 
 gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
+gem 'carrierwave', '0.10.0'
+gem 'mini_magick', '3.8.0'
 
 
 group :development, :test do
