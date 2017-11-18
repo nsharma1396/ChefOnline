@@ -10,7 +10,12 @@ Rails.application.routes.draw do
 #  patch '/recipes/:id', to: 'recipes#update'
 #  get 'recipes/:id', to: 'recipes#show'
 #  delete '/recipes/:id', to: 'recipes#destroy'
-	resources :recipes, except: [:create,:update]
+	resources :recipes, except: [:create,:update] do
+		member do
+			post 'like'
+		end
+	end
 	post '/recipes/new', to: 'recipes#create' , as: 'create_new_recipe'
 	patch '/recipes/:id/edit', to: 'recipes#update', as: 'update_recipe'
+
 end
