@@ -1,0 +1,11 @@
+<%= render 'shared/errors', obj: @chef %>
+<br/>
+<div class="row">
+	<div class="well col-md-8 col-md-offset-2">
+		<%= form_tag '/searchchef/show', method: :get do %>
+	    <%=label_tag 'chefname' %>
+	    <%=text_field_tag 'chefname'%>
+	    <%= submit_tag "Search", class: "btn btn-default btn-success center" %>
+		<% end %>
+	</div>
+</div>
