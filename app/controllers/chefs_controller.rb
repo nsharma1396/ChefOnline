@@ -37,6 +37,24 @@ class ChefsController < ApplicationController
 		end
 	end
 
+	def search
+		@chef = Chef.new
+	end
+
+	def find
+		@chefname = params[:chefname]
+		search_results = Chef.where( chefname: params[:chefname] )
+		if @chefname==""
+			flash[:danger] = "Enter a name to search!"
+			redirect_back fallback_location: search_path
+		elsif search_results==[]
+			flash[:danger] = "No Chefs with the name "+@chefname
+			redirect_back fallback_location: search_path
+		else
+			@chefs = search_results.paginate(page: params[:page], per_page: 1)
+		end
+	end
+
 	private
 
 		def chef_params

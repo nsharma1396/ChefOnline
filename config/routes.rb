@@ -27,4 +27,7 @@ Rails.application.routes.draw do
 	post '/login', to: "logins#create"
 	get '/logout', to: "logins#destroy"
 
+	get '/searchchef', to: "chefs#search", as: 'search'
+	get '/searchchef/show', to: "chefs#find"
+
 end
