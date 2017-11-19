@@ -39,14 +39,10 @@ class RecipesController < ApplicationController
 
 	def like
 		like = Like.create(like: params[:like], chef: current_user, recipe: @recipe)
-		if like.valid?
-			flash[:success] = "Recipe liked!"
-		else
+		if !like.valid?
 			like = Like.find_by("recipe_id = ? AND chef_id = ?", @recipe, current_user)
 			like.destroy
-			if like.like == params[:like]
-				flash[:success] = "Recipe Unliked!"
-			else	
+			if (like.like.to_s) != params[:like]
 				Like.create(like: params[:like], chef: current_user, recipe: @recipe)
 			end
 		end
