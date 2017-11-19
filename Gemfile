@@ -21,6 +21,7 @@ gem 'mini_magick', '3.8.0'
 gem 'will_paginate','3.1.6'
 gem 'bootstrap-will_paginate', '1.0.0'
 gem 'bcrypt', '3.1.7'
+gem 'cloudinary'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
